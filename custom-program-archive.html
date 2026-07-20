@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us | eDegree+</title>
-  <meta name="description" content="Discover eDegree+, an online university degree marketplace connecting learners with state accredited international academic programs.">
+  <title>Explore Programs | eDegree+</title>
+  <meta name="description" content="Browse accredited online degree programs including MBA, DBA, Master's, and Bachelor's programs. Filter by level, domain, and university.">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
-
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
@@ -281,85 +281,66 @@
   </div>
 
   <!-- MAIN BODY -->
-  <main class="flex-grow bg-altBg py-12">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Breadcrumbs -->
-      <nav class="flex mb-3 text-xs font-semibold uppercase tracking-wider text-mutedGray space-x-2" data-aos="fade-up">
-        <a href="index.html" class="hover:text-brand-red">Home</a>
-        <span>/</span>
-        <span class="text-ink">About Us</span>
-      </nav>
-      <h1 class="font-heading font-bold text-3xl md:text-4xl text-ink tracking-tight mb-8" data-aos="fade-up">About eDegree+</h1>
+  <main class="flex-grow bg-altBg py-12" x-data="customArchiveGrid()">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Page Header -->
+      <div class="mb-10 text-center" data-aos="fade-up">
+        <nav class="flex justify-center mb-3 text-xs font-semibold uppercase tracking-wider text-mutedGray space-x-2">
+          <a href="index.html" class="hover:text-brand-red">Home</a>
+          <span>/</span>
+          <span class="text-ink text-semibold">Custom Archive</span>
+        </nav>
+        <h1 class="font-heading font-bold text-3xl md:text-4xl text-ink tracking-tight">Accredited Programs Index</h1>
+        <p class="text-charcoal mt-1 text-sm md:text-base">Quick-access text index of all certified online university programs.</p>
+      </div>
 
-      <!-- About Panel -->
-      <article class="bg-white p-6 md:p-10 border border-borderGray rounded-custom shadow-sm space-y-8" data-aos="fade-up">
-        <div class="space-y-4">
-          <h2 class="font-heading font-bold text-xl text-ink">Our Institutional Profile</h2>
-          <p class="text-charcoal leading-relaxed text-sm md:text-base">
-            eDegree+ is a premium online education marketplace built strictly around university-degree options. We select and compile accredited distance-learning curricula, mapping online MBA, DBA, Master's, and Bachelor's programs from top partner institutions worldwide.
-          </p>
-          <p class="text-charcoal leading-relaxed text-sm md:text-base">
-            Our mission is simple: to help working professionals identify recognized academic programs, compare syllabus requirements, and submit applications directly to universities without career disruption.
-          </p>
+      <!-- Top Search Option -->
+      <div class="max-w-2xl mx-auto mb-10" data-aos="fade-up">
+        <div class="relative shadow-sm rounded-xl">
+          <input type="text" placeholder="Search by program name, degree level, or country..." x-model="searchTerm"
+                 class="w-full pl-12 pr-4 py-3 bg-white border border-borderGray rounded-xl text-ink placeholder-mutedGray focus:ring-2 focus:ring-brand-red focus:border-transparent focus:outline-none transition duration-150">
+          <i data-lucide="search" class="w-5 h-5 text-mutedGray absolute left-4 top-1/2 transform -translate-y-1/2"></i>
         </div>
+      </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 border-t border-b border-borderGray/65 py-8 my-6">
-          <div class="text-center">
-            <h4 class="text-2xl font-bold text-brand-red">50+</h4>
-            <p class="text-xs text-mutedGray font-semibold uppercase tracking-wider mt-1">Accredited Partners</p>
-          </div>
-          <div class="text-center border-t md:border-t-0 md:border-l md:border-r border-borderGray/60 py-4 md:py-0">
-            <h4 class="text-2xl font-bold text-brand-red">100%</h4>
-            <p class="text-xs text-mutedGray font-semibold uppercase tracking-wider mt-1">Online Formats</p>
-          </div>
-          <div class="text-center">
-            <h4 class="text-2xl font-bold text-brand-red">24-Hr</h4>
-            <p class="text-xs text-mutedGray font-semibold uppercase tracking-wider mt-1">Advisor Response</p>
-          </div>
-        </div>
-
-        <!-- FAQ accordion -->
-        <div class="space-y-4" id="faq">
-          <h3 class="font-heading font-bold text-lg text-ink mb-4">Frequently Asked Questions</h3>
-          
-          <div class="space-y-3" x-data="{ activeFaq: null }">
-            <!-- Q1 -->
-            <div class="border border-borderGray rounded-lg overflow-hidden">
-              <button @click="activeFaq = (activeFaq === 1 ? null : 1)" class="w-full text-left p-4 font-heading font-bold text-sm text-ink bg-altBg/30 hover:text-brand-red flex justify-between items-center focus:outline-none">
-                <span>Are these degrees identical to traditional campus awards?</span>
-                <i data-lucide="chevron-down" class="w-4 h-4 transition-transform" :class="{ 'rotate-180': activeFaq === 1 }"></i>
-              </button>
-              <div class="p-4 text-xs text-charcoal border-t border-borderGray bg-white leading-relaxed" x-show="activeFaq === 1" style="display: none;">
-                Yes. Our partner universities award standard degree credentials that carry identical accreditation status, modules, rights, and transcript structures to campus-based programs. The term "online" is typically not printed on your diploma.
+      <!-- Programs Grid List -->
+      <div class="space-y-8">
+        <!-- Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <template x-for="program in paginatedPrograms" :key="program.id">
+            <div class="bg-white border border-borderGray rounded-custom p-6 shadow-sm hover:shadow-md hover:border-brand-red transition-all duration-200 flex flex-col justify-between h-full card-hover-lift" data-aos="fade-up">
+              <div class="min-w-0">
+                <span class="inline-block bg-brand-tint border border-brand-red/20 text-brand-red text-[10px] font-extrabold uppercase px-2 py-0.5 rounded mb-3 tracking-wider" x-text="program.degreeType"></span>
+                <h3 class="font-heading font-bold text-base text-ink mb-2 leading-snug break-words">
+                  <a :href="'program-single.html?id=' + program.id" class="hover:text-brand-red transition-colors" x-text="program.name"></a>
+                </h3>
+              </div>
+              <div class="pt-4 mt-4 border-t border-borderGray/40 flex justify-between items-center text-xs">
+                <span class="font-semibold text-mutedGray truncate mr-2" x-text="getUniversityName(program.universityId) + ' (' + getUniversityLocation(program.universityId) + ')'"></span>
+                <a :href="'program-single.html?id=' + program.id" class="text-brand-red font-bold hover:underline whitespace-nowrap flex-shrink-0 flex items-center gap-1">
+                  <span>View Details</span>
+                  <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                </a>
               </div>
             </div>
-
-            <!-- Q2 -->
-            <div class="border border-borderGray rounded-lg overflow-hidden">
-              <button @click="activeFaq = (activeFaq === 2 ? null : 2)" class="w-full text-left p-4 font-heading font-bold text-sm text-ink bg-altBg/30 hover:text-brand-red flex justify-between items-center focus:outline-none">
-                <span>How does early scholarship allocation function?</span>
-                <i data-lucide="chevron-down" class="w-4 h-4 transition-transform" :class="{ 'rotate-180': activeFaq === 2 }"></i>
-              </button>
-              <div class="p-4 text-xs text-charcoal border-t border-borderGray bg-white leading-relaxed" x-show="activeFaq === 2" style="display: none;">
-                Students submitting queries via eDegree+ counseling widgets are paired with advisors who check current early cohort scholarship pools (saving up to 30% on select university degree fees).
-              </div>
-            </div>
-
-            <!-- Q3 -->
-            <div class="border border-borderGray rounded-lg overflow-hidden">
-              <button @click="activeFaq = (activeFaq === 3 ? null : 3)" class="w-full text-left p-4 font-heading font-bold text-sm text-ink bg-altBg/30 hover:text-brand-red flex justify-between items-center focus:outline-none">
-                <span>Who determines program eligibility guidelines?</span>
-                <i data-lucide="chevron-down" class="w-4 h-4 transition-transform" :class="{ 'rotate-180': activeFaq === 3 }"></i>
-              </button>
-              <div class="p-4 text-xs text-charcoal border-t border-borderGray bg-white leading-relaxed" x-show="activeFaq === 3" style="display: none;">
-                Admissions criteria, transfer credit audits, work experience weights, and final enrollment clearances are evaluated and finalized solely by each partner university's respective registrar desks.
-              </div>
-            </div>
-          </div>
+          </template>
         </div>
-      </article>
 
+        <!-- Empty match block -->
+        <div class="bg-white p-12 text-center rounded-custom border border-borderGray" x-show="filteredPrograms.length === 0" style="display: none;" data-aos="fade-up">
+          <i data-lucide="alert-circle" class="w-12 h-12 text-mutedGray mx-auto mb-4"></i>
+          <h3 class="font-heading font-bold text-ink text-lg mb-1">No Matching Programs Found</h3>
+          <p class="text-sm text-charcoal">Try search keywords like "MBA", "Data", or "Germany".</p>
+        </div>
+
+        <!-- Load More Pagination Option -->
+        <div class="text-center pt-4" x-show="hasMore" data-aos="fade-up">
+          <button @click="loadMore()" class="bg-white border border-borderGray hover:border-brand-red/50 text-ink hover:text-brand-red font-bold px-8 py-3 rounded-xl shadow-sm hover:shadow transition-all duration-150 text-sm inline-flex items-center space-x-2">
+            <span>Load More Programs</span>
+            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
     </div>
   </main>
 
@@ -464,6 +445,53 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       AOS.init({ duration: 800, once: true });
+    });
+
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('customArchiveGrid', () => ({
+        programs: eDegreeDb.programs,
+        searchTerm: '',
+        visibleCount: 6,
+
+        get filteredPrograms() {
+          if (!this.searchTerm.trim()) return this.programs;
+          const q = this.searchTerm.toLowerCase().trim();
+          return this.programs.filter(p => {
+            const uni = eDegreeDb.universities.find(u => u.id === p.universityId);
+            const uniName = uni ? uni.name.toLowerCase() : '';
+            const uniLoc = uni ? uni.location.toLowerCase() : '';
+            return p.name.toLowerCase().includes(q) ||
+                   p.degreeType.toLowerCase().includes(q) ||
+                   p.category.toLowerCase().includes(q) ||
+                   uniName.includes(q) ||
+                   uniLoc.includes(q);
+          });
+        },
+
+        get paginatedPrograms() {
+          return this.filteredPrograms.slice(0, this.visibleCount);
+        },
+
+        get hasMore() {
+          return this.visibleCount < this.filteredPrograms.length;
+        },
+
+        loadMore() {
+          this.visibleCount += 6;
+        },
+
+        getUniversityName(id) {
+          const u = eDegreeDb.universities.find(uni => uni.id === id);
+          return u ? u.name : '';
+        },
+
+        getUniversityLocation(id) {
+          const u = eDegreeDb.universities.find(uni => uni.id === id);
+          if (!u) return '';
+          const parts = u.location.split(',');
+          return parts[parts.length - 1].trim();
+        }
+      }));
     });
   </script>
 </body>

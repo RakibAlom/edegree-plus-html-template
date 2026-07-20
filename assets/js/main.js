@@ -632,13 +632,13 @@ function initializeSearchOverlay() {
       matches.forEach(item => {
         const uni = eDegreeDb.universities.find(u => u.id === item.universityId);
         const li = document.createElement('li');
-        li.className = 'p-3 hover:bg-brand-tint cursor-pointer rounded-lg flex justify-between items-center transition-colors duration-150';
+        li.className = 'p-3 hover:bg-brand-tint cursor-pointer rounded-lg flex justify-between items-center transition-colors duration-150 gap-4';
         li.innerHTML = `
-          <div>
-            <div class="font-heading font-medium text-ink text-sm">${item.name}</div>
-            <div class="text-xs text-mutedGray">${uni ? uni.name : ''} &middot; ${item.degreeType}</div>
+          <div class="min-w-0 flex-1">
+            <div class="font-heading font-medium text-ink text-sm break-words">${item.name}</div>
+            <div class="text-xs text-mutedGray break-words">${uni ? uni.name : ''} &middot; ${item.degreeType}</div>
           </div>
-          <span class="text-brand-red text-xs font-semibold">View Program &rarr;</span>
+          <span class="text-brand-red text-xs font-semibold whitespace-nowrap flex-shrink-0 ml-2">View Program &rarr;</span>
         `;
         li.addEventListener('click', () => {
           window.location.href = `program-single.html?id=${item.id}`;
@@ -653,13 +653,13 @@ function initializeSearchOverlay() {
 
       matches.forEach(item => {
         const li = document.createElement('li');
-        li.className = 'p-3 hover:bg-brand-tint cursor-pointer rounded-lg flex justify-between items-center transition-colors duration-150';
+        li.className = 'p-3 hover:bg-brand-tint cursor-pointer rounded-lg flex justify-between items-center transition-colors duration-150 gap-4';
         li.innerHTML = `
-          <div>
-            <div class="font-heading font-medium text-ink text-sm">${item.name}</div>
-            <div class="text-xs text-mutedGray">${item.location} &middot; ${item.programsCount} Programs</div>
+          <div class="min-w-0 flex-1">
+            <div class="font-heading font-medium text-ink text-sm break-words">${item.name}</div>
+            <div class="text-xs text-mutedGray break-words">${item.location} &middot; ${item.programsCount} Programs</div>
           </div>
-          <span class="text-brand-red text-xs font-semibold">View University &rarr;</span>
+          <span class="text-brand-red text-xs font-semibold whitespace-nowrap flex-shrink-0 ml-2">View University &rarr;</span>
         `;
         li.addEventListener('click', () => {
           window.location.href = `university-single.html?id=${item.id}`;

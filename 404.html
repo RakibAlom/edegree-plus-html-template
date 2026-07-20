@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us | eDegree+</title>
-  <meta name="description" content="Discover eDegree+, an online university degree marketplace connecting learners with state accredited international academic programs.">
+  <title>Explore Programs | eDegree+</title>
+  <meta name="description" content="Browse accredited online degree programs including MBA, DBA, Master's, and Bachelor's programs. Filter by level, domain, and university.">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
-
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
@@ -281,85 +281,29 @@
   </div>
 
   <!-- MAIN BODY -->
-  <main class="flex-grow bg-altBg py-12">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <main class="flex-grow bg-altBg py-20 flex items-center justify-center">
+    <div class="max-w-md w-full mx-auto px-6 text-center" data-aos="fade-up">
+      <!-- Error Illustration (Premium Icon Visual) -->
+      <div class="inline-flex items-center justify-center w-24 h-24 bg-brand-tint border-2 border-brand-red/10 rounded-full mb-8 animate-pulse text-brand-red">
+        <i data-lucide="compass" class="w-12 h-12"></i>
+      </div>
       
-      <!-- Breadcrumbs -->
-      <nav class="flex mb-3 text-xs font-semibold uppercase tracking-wider text-mutedGray space-x-2" data-aos="fade-up">
-        <a href="index.html" class="hover:text-brand-red">Home</a>
-        <span>/</span>
-        <span class="text-ink">About Us</span>
-      </nav>
-      <h1 class="font-heading font-bold text-3xl md:text-4xl text-ink tracking-tight mb-8" data-aos="fade-up">About eDegree+</h1>
+      <!-- Error Message -->
+      <h1 class="font-heading font-black text-6xl text-brand-red tracking-tight mb-2">404</h1>
+      <h2 class="font-heading font-bold text-xl md:text-2xl text-ink mb-4">Page Not Found</h2>
+      <p class="text-charcoal text-sm md:text-base mb-8 leading-relaxed">
+        The link you followed might be broken, or the page may have been removed. Let us guide you back to premium online learning.
+      </p>
 
-      <!-- About Panel -->
-      <article class="bg-white p-6 md:p-10 border border-borderGray rounded-custom shadow-sm space-y-8" data-aos="fade-up">
-        <div class="space-y-4">
-          <h2 class="font-heading font-bold text-xl text-ink">Our Institutional Profile</h2>
-          <p class="text-charcoal leading-relaxed text-sm md:text-base">
-            eDegree+ is a premium online education marketplace built strictly around university-degree options. We select and compile accredited distance-learning curricula, mapping online MBA, DBA, Master's, and Bachelor's programs from top partner institutions worldwide.
-          </p>
-          <p class="text-charcoal leading-relaxed text-sm md:text-base">
-            Our mission is simple: to help working professionals identify recognized academic programs, compare syllabus requirements, and submit applications directly to universities without career disruption.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 border-t border-b border-borderGray/65 py-8 my-6">
-          <div class="text-center">
-            <h4 class="text-2xl font-bold text-brand-red">50+</h4>
-            <p class="text-xs text-mutedGray font-semibold uppercase tracking-wider mt-1">Accredited Partners</p>
-          </div>
-          <div class="text-center border-t md:border-t-0 md:border-l md:border-r border-borderGray/60 py-4 md:py-0">
-            <h4 class="text-2xl font-bold text-brand-red">100%</h4>
-            <p class="text-xs text-mutedGray font-semibold uppercase tracking-wider mt-1">Online Formats</p>
-          </div>
-          <div class="text-center">
-            <h4 class="text-2xl font-bold text-brand-red">24-Hr</h4>
-            <p class="text-xs text-mutedGray font-semibold uppercase tracking-wider mt-1">Advisor Response</p>
-          </div>
-        </div>
-
-        <!-- FAQ accordion -->
-        <div class="space-y-4" id="faq">
-          <h3 class="font-heading font-bold text-lg text-ink mb-4">Frequently Asked Questions</h3>
-          
-          <div class="space-y-3" x-data="{ activeFaq: null }">
-            <!-- Q1 -->
-            <div class="border border-borderGray rounded-lg overflow-hidden">
-              <button @click="activeFaq = (activeFaq === 1 ? null : 1)" class="w-full text-left p-4 font-heading font-bold text-sm text-ink bg-altBg/30 hover:text-brand-red flex justify-between items-center focus:outline-none">
-                <span>Are these degrees identical to traditional campus awards?</span>
-                <i data-lucide="chevron-down" class="w-4 h-4 transition-transform" :class="{ 'rotate-180': activeFaq === 1 }"></i>
-              </button>
-              <div class="p-4 text-xs text-charcoal border-t border-borderGray bg-white leading-relaxed" x-show="activeFaq === 1" style="display: none;">
-                Yes. Our partner universities award standard degree credentials that carry identical accreditation status, modules, rights, and transcript structures to campus-based programs. The term "online" is typically not printed on your diploma.
-              </div>
-            </div>
-
-            <!-- Q2 -->
-            <div class="border border-borderGray rounded-lg overflow-hidden">
-              <button @click="activeFaq = (activeFaq === 2 ? null : 2)" class="w-full text-left p-4 font-heading font-bold text-sm text-ink bg-altBg/30 hover:text-brand-red flex justify-between items-center focus:outline-none">
-                <span>How does early scholarship allocation function?</span>
-                <i data-lucide="chevron-down" class="w-4 h-4 transition-transform" :class="{ 'rotate-180': activeFaq === 2 }"></i>
-              </button>
-              <div class="p-4 text-xs text-charcoal border-t border-borderGray bg-white leading-relaxed" x-show="activeFaq === 2" style="display: none;">
-                Students submitting queries via eDegree+ counseling widgets are paired with advisors who check current early cohort scholarship pools (saving up to 30% on select university degree fees).
-              </div>
-            </div>
-
-            <!-- Q3 -->
-            <div class="border border-borderGray rounded-lg overflow-hidden">
-              <button @click="activeFaq = (activeFaq === 3 ? null : 3)" class="w-full text-left p-4 font-heading font-bold text-sm text-ink bg-altBg/30 hover:text-brand-red flex justify-between items-center focus:outline-none">
-                <span>Who determines program eligibility guidelines?</span>
-                <i data-lucide="chevron-down" class="w-4 h-4 transition-transform" :class="{ 'rotate-180': activeFaq === 3 }"></i>
-              </button>
-              <div class="p-4 text-xs text-charcoal border-t border-borderGray bg-white leading-relaxed" x-show="activeFaq === 3" style="display: none;">
-                Admissions criteria, transfer credit audits, work experience weights, and final enrollment clearances are evaluated and finalized solely by each partner university's respective registrar desks.
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="index.html" class="w-full sm:w-auto bg-brand-red hover:bg-brand-darkRed text-white font-bold px-6 py-3 rounded-xl shadow-md transition duration-150 text-sm whitespace-nowrap">
+          Go Back Home
+        </a>
+        <a href="programs.html" class="w-full sm:w-auto bg-white border border-borderGray hover:border-brand-red/50 text-ink hover:text-brand-red font-bold px-6 py-3 rounded-xl shadow-sm transition duration-150 text-sm whitespace-nowrap">
+          Explore Programs
+        </a>
+      </div>
     </div>
   </main>
 
